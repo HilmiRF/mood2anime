@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
+import Mood2AnimeLogo from "@/public/icon.png";
 
 interface NavbarProps {}
 
@@ -9,14 +10,14 @@ const Navbar: FC<NavbarProps> = ({}) => {
 			<div className="navbar-start">
 				<div className="btn btn-square btn-ghost">
 					<div className="relative w-full aspect-square m-1">
-						<div className="relative w-full aspect-square m-1">
+						<span className="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0">
 							<Image
-								width={"24"}
-								height={"24"}
-								src="../../../public/icon.svg"
-								alt={"Mood2Anime Logo"}
+								src={Mood2AnimeLogo}
+								width={500}
+								height={500}
+								alt="Mood2Anime Logo"
 							/>
-						</div>
+						</span>
 					</div>
 				</div>
 			</div>

@@ -15,7 +15,7 @@ const bricolageSemiBold = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-	title: "Mood 2 Anime",
+	title: "Mood2Anime",
 	description: "Find Animes based on your mood 😉",
 };
 

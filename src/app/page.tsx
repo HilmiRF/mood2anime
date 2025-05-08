@@ -13,7 +13,7 @@ export default function Home() {
 				<div className="grid grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
 					<a
 						href=""
-						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
+						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline text-xl"
 					>
 						😁 Cheerful
 					</a>
