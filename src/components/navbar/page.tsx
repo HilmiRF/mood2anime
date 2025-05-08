@@ -2,12 +2,14 @@ import React, { FC } from "react";
 import Image from "next/image";
 import Mood2AnimeLogo from "@/public/icon.png";
 
-interface NavbarProps {}
+interface NavbarProps {
+	isHome: boolean;
+}
 
-const Navbar: FC<NavbarProps> = ({}) => {
+const Navbar: FC<NavbarProps> = ({isHome}) => {
 	return (
 		<div className="navbar bg-base-100 rounded-box shadow-lg mb-4 md:mb-6 max-w-[40rem] mx-auto">
-			<div className="navbar-start">
+			<div className={`navbar-start ${isHome ? "" : "w-1/4"}`}>
 				<div className="btn btn-square btn-ghost">
 					<div className="relative w-full aspect-square m-1">
 						<span className="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0">
@@ -21,13 +23,18 @@ const Navbar: FC<NavbarProps> = ({}) => {
 					</div>
 				</div>
 			</div>
-			<div className="navbar-center">
+			<div className={`navbar-center ${isHome ? "" : "w-1/2 justify-center"}`}>
 				<div className="text-center text-xl">Mood2Anime</div>
 			</div>
-			<div className="navbar-end w-1/4">
+			<div className={`navbar-end ${isHome ? "" : "w-1/4"}`}>
+			{isHome ? (
+				""
+			):(
 				<button className="btn btn-primary btn-square md:btn-block">
 					Edit Mood
 				</button>
+			)}
+			
 			</div>
 		</div>
 	);
