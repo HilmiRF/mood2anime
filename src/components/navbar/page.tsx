@@ -24,7 +24,11 @@ const Navbar: FC<NavbarProps> = ({}) => {
 			<div className="navbar-center">
 				<div className="text-center text-xl">Mood2Anime</div>
 			</div>
-			<div className="navbar-end"></div>
+			<div className="navbar-end w-1/4">
+				<button className="btn btn-primary btn-square md:btn-block">
+					Edit Mood
+				</button>
+			</div>
 		</div>
 	);
 };

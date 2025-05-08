@@ -1,10 +1,6 @@
-import Footer from "@/components/footer/page";
-import Navbar from "@/components/navbar/page";
-
 export default function Home() {
 	return (
 		<>
-			<Navbar />
 			<div className="text-center">
 				<h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
 					Discover top-rated anime based on your mood
@@ -109,7 +105,6 @@ export default function Home() {
 					</a>
 				</div>
 			</div>
-			<Footer />
 		</>
 	);
 }
