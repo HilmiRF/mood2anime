@@ -1,14 +1,34 @@
-import React, { FC } from "react";
+"use client";
+import { useSearchParams } from "next/navigation";
+import React, { FC, useEffect, useState } from "react";
 
 interface animePageProps {}
 
 const animePage: FC<animePageProps> = ({}) => {
+	const [isLoading, setIsLoading] = useState(true);
+	const searchParams = useSearchParams();
+	const mood = searchParams.get("mood");
+
+	useEffect(() => {
+		setTimeout(() => {
+			setIsLoading(false);
+			console.log(mood);
+		}, 2000);
+	}, []);
+
 	return (
 		<>
 			<div className="">
-				<div className="card card-compact md:card-mormal w-full md:w-[40rem] bg-base-100 shadow-xl mx-auto">
-					<figure>
-						<div className="video-responsive w-full">
+				{isLoading ? (
+					<div className="text-center text-lg">
+						<div className="font-regular">We're fetching the best anime to watch when you're feeling
+							<div className="font-semibold"> {mood} </div> Hold on tight!
+						</div>
+					</div>
+				) : (
+					<div className="card card-compact md:card-mormal w-full md:w-[40rem] bg-base-100 shadow-xl mx-auto">
+						<figure>
+							<div className="video-responsive w-full">
 							<iframe
 								src="https://www.youtube.com/embed/6ZfuNTqbHE8?modestbranding=1&amp;playsinline=1&amp;rel=0&amp;enablejsapi=1&amp;autohide=1&amp;showinfo=0"
 								frameBorder="0"
@@ -58,6 +78,7 @@ const animePage: FC<animePageProps> = ({}) => {
 						</div>
 					</div>
 				</div>
+				)}
 			</div>
 		</>
 	);
