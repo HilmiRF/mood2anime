@@ -30,7 +30,13 @@ const Navbar: FC<NavbarProps> = ({ isHome }) => {
 						isHome ? "" : "w-1/2 justify-center"
 					}`}
 				>
-					<div className="text-center text-xl">Mood2Anime</div>
+					{isHome ? (
+						<div className="text-center text-xl">Mood2Anime</div>
+					) : (
+						<div className="text-center tracking-tight">
+							Feeling 😕 Gloomy
+						</div>
+					)}
 				</div>
 				<div className={`navbar-end ${isHome ? "" : "w-1/4"}`}>
 					{isHome ? (
