@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
 	return (
 		<>
@@ -7,102 +9,102 @@ export default function Home() {
 				</h1>
 				<div className="text-xl mb-4">How are you feeling now?</div>
 				<div className="grid grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
-					<a
-						href=""
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline text-xl"
 					>
 						😁 Cheerful
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						🤔 Reflective
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						🙁 Gloomy
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						🤣 Humorous
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😔 Melancholy
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😎 Chill
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😍 Romantic
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						🤪 Weird
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						🥱 Sleepy
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😡 Angry
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😰 Fearful
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😢 Lonely
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😳 Tense
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						🤓 Thoughtful
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😆 Thrill-Seeking
-					</a>
-					<a
-						href=""
+					</Link>
+					<Link
+						href="/animes"
 						className="btn md:btn-lg border-[1.5px] border-primary hover:btn-primary btn-outline"
 					>
 						😃 Playful
-					</a>
+					</Link>
 				</div>
 			</div>
 		</>
