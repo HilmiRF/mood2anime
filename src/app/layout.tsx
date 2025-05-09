@@ -17,8 +17,10 @@ const bricolageSemiBold = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-	title: "Mood2Anime",
-	description: "Find Animes based on your mood 😉",
+	title: {
+		template: "%s | Mood2Anime",
+		default: "Mood2Anime | Find Animes based on your mood 😉",
+	},
 };
 
 export default function RootLayout({
