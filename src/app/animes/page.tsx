@@ -31,6 +31,7 @@ const animePage: FC<animePageProps> = ({}) => {
 						genres={["Action", "Adventure", "Comedy"]}
 						link="https://cdn.myanimelist.net/images/anime/1245/116760.webp"
 						episodes={51}
+						status="Finished Airing"
 					/>
 				)}
 			</div>
