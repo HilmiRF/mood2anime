@@ -5,33 +5,67 @@ import Loading from "@/components/Loading/page";
 import { useSearchParams } from "next/navigation";
 import React, { FC, useEffect, useState } from "react";
 
+interface AnimeData {
+	_id: string;
+	title: string;
+	synopsis: string;
+	genres: string[];
+	image: string;
+	episodes: number;
+	status: string;
+}
+
 interface animePageProps {}
 
 const animePage: FC<animePageProps> = ({}) => {
 	const [isLoading, setIsLoading] = useState(true);
+	const [animes, setAnimes] = useState<AnimeData[]>([]);
+	const [error, setError] = useState<string | null>(null);
 	const searchParams = useSearchParams();
 	const mood = searchParams.get("mood");
 
 	useEffect(() => {
-		setTimeout(() => {
-			setIsLoading(false);
-			console.log(mood);
-		}, 2000);
-	}, []);
+		const fetchAnimes = async () => {
+			try {
+				setIsLoading(true);
+				const response = await fetch(`/api/animes?mood=${mood || ''}`);
+				
+				if (!response.ok) {
+					throw new Error('Failed to fetch anime data');
+				}
+				
+				const data = await response.json();
+				setAnimes(data.data || []);
+				setError(null);
+			} catch (err) {
+				console.error('Error fetching animes:', err);
+				setError('Failed to load anime recommendations. Please try again later.');
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchAnimes();
+	}, [mood]);
 
 	return (
 		<>
 			<div className="">
 				{isLoading ? (
 					<Loading mood={mood || ""} />
+				) : error ? (
+					<div className="text-center text-red-500">{error}</div>
+				) : animes.length === 0 ? (
+					<div className="text-center">No anime found for this mood. Try another mood?</div>
 				) : (
 					<AnimeCard
-						title="Gintama"
-						synopsis="Gintoki, Shinpachi, and Kagura return as the fun-loving but broke members of the Yorozuya team! Living in an alternate-reality Edo, where swords are prohibited and alien overlords have conquered Japan, they try to thrive on doing whatever work they can get their hands on. However, Shinpachi and Kagura still haven't been paid... Does Gin-chan really spend all that cash playing pachinko?\n\nMeanwhile, when Gintoki drunkenly staggers home one night, an alien spaceship crashes nearby. A fatally injured crew member emerges from the ship and gives Gintoki a strange, clock-shaped device, warning him that it is incredibly powerful and must be safeguarded. Mistaking it for his alarm clock, Gintoki proceeds to smash the device the next morning and suddenly discovers that the world outside his apartment has come to a standstill. With Kagura and Shinpachi at his side, he sets off to get the device fixed; though, as usual, nothing is ever that simple for the Yorozuya team.\n\nFilled with tongue-in-cheek humor and moments of heartfelt emotion, Gintama's fourth season finds Gintoki and his friends facing both their most hilarious misadventures and most dangerous crises yet.\n\n[Written by MAL Rewrite]"
-						genres={["Action", "Adventure", "Comedy"]}
-						link="https://cdn.myanimelist.net/images/anime/1245/116760.webp"
-						episodes={51}
-						status="Finished Airing"
+						key={animes[0]._id}
+						title={animes[0].title}
+						synopsis={animes[0].synopsis}
+						genres={animes[0].genres}
+						link={animes[0].image}
+						episodes={animes[0].episodes}
+						status={animes[0].status}
 					/>
 				)}
 			</div>
